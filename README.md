@@ -56,7 +56,14 @@ pip install jsonify
 pip install ddddocr
 ```
 
-3. 接口采用教务处官网提供的地址进行登录，并没有从ehall站进入，因此**不保证代码一直有效**。若代码失效，则请二次开发`/njust/process.py`里的`jwc_login(uid, pwd)`函数相关逻辑及`/njust/config.py`里的`url_login`及`url_verify`参数进行适配即可，因为教务处网站的成绩查询及课程表查询页面结构一般不会改变，因此不需要修改其他任何内容。
+或直接使用下列的方式安装相关依赖：
+```python
+pip install -r requirements.txt
+```
+
+
+
+3.接口采用教务处官网提供的地址进行登录，并没有从ehall站进入，因此**不保证代码一直有效**。若代码失效，则请二次开发`/njust/process.py`里的`jwc_login(uid, pwd)`函数相关逻辑及`/njust/config.py`里的`url_login`及`url_verify`参数进行适配即可，因为教务处网站的成绩查询及课程表查询页面结构一般不会改变，因此不需要修改其他任何内容。
 
 ### 成绩查询
 
@@ -170,3 +177,4 @@ pip install ddddocr
 -----------
 
 <div align="center">Copyright&copy;2023 Colyn, All Rights Reserved.
+
