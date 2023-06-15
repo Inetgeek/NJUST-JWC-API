@@ -33,6 +33,7 @@ def jwc_login(uid, pwd):
     res = requests.get(url=location, headers=c.headers, allow_redirects=True)
     cookies = res.history[-1].cookies.get_dict()
     res.close()
+
     return cookies
 
 
@@ -85,6 +86,7 @@ def jwc_course(uid, pwd):
 
     # for index, i in enumerate(data_course):
     #     print(index, i)
+
     # -----------------------------------------------------------------------
     # 解析课程表上课周次
     # 在html文本中匹配id为kbtable的table标签下所有class为kbcontent1的div标签里的数据
@@ -101,11 +103,12 @@ def jwc_course(uid, pwd):
     week_info = re.findall(week_td_pattern, con)
     week_info = set(week_info)
     data_week = course_merge(week_info)
+
     # for index, i in enumerate(data_week):
     #     print(index, i)
 
     # -----------------------------------------------------------------------
-    # # 开始合并课程
+    # # 封装课表数据
     data = []  # 用来存储返回数据
     for i in data_course:
         info_course = {}  # 用来存课程数据
@@ -124,6 +127,7 @@ def jwc_course(uid, pwd):
             if i[3] in w[0]:
                 info_course["date"] = [int(x) for x in w[1].split('-')]
         data.append(info_course)
+
     return data
 
 
@@ -146,6 +150,7 @@ def jwc_score(uid, pwd):
         td_list = re.findall('<td.*?>(.*?)</td>', tr, re.S)
         # 将每个td中的内容作为元组元素，添加到结果列表中
         data_score.append(tuple(td_list))
+
     # for index, i in enumerate(data_score):
     #     print(index, i)
 
@@ -162,6 +167,7 @@ def jwc_score(uid, pwd):
                       "type": i[9]
                       }  # 用来存成绩数据
         data.append(info_score)
+
     return data
 
 
