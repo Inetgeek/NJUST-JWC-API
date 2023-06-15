@@ -6,7 +6,7 @@
  @project: main.py
  @devtool: PyCharm
  @date: 2023/6/15
- @file: __init__.py.py
+ @file: __init__.py
 """
 
 __all__ = ['config', 'process']
@@ -24,4 +24,4 @@ __doc__ = '''
 '''
 
 if __name__ == '__main__':
-    print("========== __init__.py.py ==========")
+    print("========== __init__.py ==========")
